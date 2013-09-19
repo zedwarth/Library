@@ -51,6 +51,11 @@ class Library
     user.books.delete(book)
   end
 
+  # Returns an Array of overdue books.
+  def overdue_books
+    @checked_out_books.select { |book| book.overdue? }
+  end
+
   # Outputs a list of books with due date and user.
   def list_checked_out_books
     @checked_out_books.each do |book|

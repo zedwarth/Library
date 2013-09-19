@@ -21,7 +21,7 @@ library.check_out user, great_expectations
 library.check_out user, tom_sawyer
 #library.check_out user, rainbow_six
 
-#great_expectations.due_date = Time.now - (2*60*60*24*1000)
+great_expectations.due_date = Time.now - (2*60*60*24*14)
 #tom_sawyer.reported_lost = true
 
 books.each do |b|
@@ -30,3 +30,4 @@ books.each do |b|
 end
 
 library.list_checked_out_books
+puts library.overdue_books.first.title
