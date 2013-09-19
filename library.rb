@@ -24,8 +24,31 @@ class Library
   # Returns the checked out Book.
   def check_out(user, book)
     raise ArgumentError, "Book not in library." unless @books.include? book
+    raise "User has too many books checked out." if user.books.size == 2 
+    raise "User has overdue books." if user.books.any? { |book| book.overdue? }
+
+    # Remove the book from the library.
+    @books.delete(book)
 
     book.due_date = Time.now + CHECK_OUT_INTERVAL
-    book.user     = user
+    user.books << book
   end
+
+  # Checks in a book for a user.
+  #
+  # user - The User checking in the book.
+  # book - The Book to be checked in.
+  #
+  # Returns the checked in book.
+  
 end
+
+
+
+
+
+
+
+
+
+
