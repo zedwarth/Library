@@ -13,6 +13,8 @@ class Library
   #
   # Returns the Array of books.
   def add_book(book)
+    book.library = self
+
     @books << book
   end
 
