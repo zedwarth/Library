@@ -1,10 +1,11 @@
 class Library
-  attr_reader :books
+  attr_reader :books, :checked_out_books
 
   CHECK_OUT_INTERVAL = 60*60*24*7
 
   def initialize
     @books = []
+    @checked_out_books = []
   end
 
   # Adds a book to the library.
@@ -33,7 +34,9 @@ class Library
     @books.delete(book)
 
     book.due_date = Time.now + CHECK_OUT_INTERVAL
+    book.user = user
     user.books << book
+    @checked_out_books << book
   end
 
   # Checks in a book for a user.
@@ -46,5 +49,12 @@ class Library
     @books << book
     book.due_date = nil
     user.books.delete(book)
+  end
+
+  # Outputs a list of books with due date and user.
+  def list_checked_out_books
+    @checked_out_books.each do |book|
+      puts "#{book.title}: checked out by #{book.user.name}, due on #{book.due_date}"
+    end
   end
 end

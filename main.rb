@@ -21,10 +21,12 @@ library.check_out user, great_expectations
 library.check_out user, tom_sawyer
 #library.check_out user, rainbow_six
 
-great_expectations.due_date = Time.now - (2*60*60*24*1000)
-tom_sawyer.reported_lost = true
+#great_expectations.due_date = Time.now - (2*60*60*24*1000)
+#tom_sawyer.reported_lost = true
 
 books.each do |b|
   puts b.title
   puts b.status
 end
+
+library.list_checked_out_books

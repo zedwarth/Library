@@ -1,5 +1,5 @@
 class User
-  attr_accessor :books
+  attr_accessor :books, :name
 
   def initialize(name)
     @name  = name

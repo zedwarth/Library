@@ -1,6 +1,6 @@
 class Book
   attr_reader :title, :author
-  attr_accessor :due_date, :library, :reported_lost
+  attr_accessor :due_date, :library, :user, :reported_lost
 
   def initialize(title, author, description = nil)
     @title       = title
@@ -11,6 +11,11 @@ class Book
   # Returns true if a book is overdue, false otherwise.
   def overdue?
     Time.now > @due_date
+  end
+
+  # Returns true if a book is available, false otherwise.
+  def available?
+    status == :available
   end
 
   # Returns the Symbol status of the book.
