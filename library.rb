@@ -40,15 +40,9 @@ class Library
   # book - The Book to be checked in.
   #
   # Returns the checked in book.
-  
+  def check_in(user, book)
+    @books << book
+    book.due_date = nil
+    user.books.delete(book)
+  end
 end
-
-
-
-
-
-
-
-
-
-
