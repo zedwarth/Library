@@ -15,7 +15,6 @@ class Library
   def available_books
   end
 
-  # you should be able to add new books to a library
   def add_book(book)
   end
 
@@ -44,7 +43,6 @@ class Borrower
 end
 
 class Book
-  # books should be able to have info saved about them
   def initialize(title, author)
   end
 end
