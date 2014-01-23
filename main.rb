@@ -1,7 +1,7 @@
 require_relative "library.rb"
 
 puts "create our library"
-library = Library.new
+mks_lib = Library.new("The MakerSquare Library")
 puts "-------------------------"
 
 puts "create our borrowers"
@@ -20,43 +20,43 @@ k_and_r = Book.new("The C Programming Language", "Kernighan and Ritchie")
 puts "-------------------------"
 
 puts "add our books to the library"
-library.add_book(stranger)
-library.add_book(nausea)
-library.add_book(karamazov)
-library.add_book(feynman)
-library.add_book(finnegan)
-library.add_book(k_and_r)
+mks_lib.add_book(stranger)
+mks_lib.add_book(nausea)
+mks_lib.add_book(karamazov)
+mks_lib.add_book(feynman)
+mks_lib.add_book(finnegan)
+mks_lib.add_book(k_and_r)
 puts "-------------------------"
 
-puts "list all five books in the library's catalog with their status:"
-library.list_books
+puts "list all five books in the mks_lib's catalog with their status:"
+mks_lib.list_books
 puts "-------------------------"
 
 puts "check out two books for mike"
-library.check_out(mike, stranger)
-library.check_out(mike, nausea)
+mks_lib.check_out(mike, stranger)
+mks_lib.check_out(mike, nausea)
 puts "-------------------------"
 
 puts "check out two books for gilbert"
-library.check_out(gilbert, karamazov)
-library.check_out(gilbert, feynman)
+mks_lib.check_out(gilbert, karamazov)
+mks_lib.check_out(gilbert, feynman)
 puts "-------------------------"
 
-puts "list all five books in the library's catalog with their statuses:"
-library.list_books
+puts "list all five books in the mks_lib's catalog with their statuses:"
+mks_lib.list_books
 puts "-------------------------"
 
 puts "try to check out another book for Mike, this should fail since he already
   has two out"
-library.check_out(mike, finnegan)
+mks_lib.check_out(mike, finnegan)
 puts "-------------------------"
 
 puts "this book should still be available since it failed before"
-library.check_out(ricardo, finnegan)
+mks_lib.check_out(ricardo, finnegan)
 puts "-------------------------"
 
 puts "but this book should fail since it is already checked out"
-library.check_out(ricardo, stranger)
+mks_lib.check_out(ricardo, stranger)
 puts "-------------------------"
 
 puts "these should return the books each user checked out"
@@ -72,11 +72,11 @@ ricardo.borrowed_books_list
 puts "-------------------------"
 
 puts "this should only show the borrowed books with their borrowers"
-library.borrowed_books
+mks_lib.borrowed_books
 puts "-------------------------"
 
 puts "this should only show the available books"
-library.available_books
+mks_lib.available_books
 puts "-------------------------"
 
 

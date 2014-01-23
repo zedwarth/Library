@@ -1,5 +1,5 @@
 class Library
-  def initialize
+  def initialize(name)
     @books = []
   end
 
