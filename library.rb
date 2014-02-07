@@ -43,9 +43,13 @@ class Library
 
 	def initialize(name)
 		@books = Array.new
+		@ids = 0
 	end
 
-	def add_book(title, author)
+	def register_new_book(title, author)
+		book = Book.new(title, author, @ids)
+		@books << book
+		@ids += 1
 	end
 
 	def check_out_book(book_id, borrower)
