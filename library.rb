@@ -1,43 +1,49 @@
 class Book
-  attr_reader :title, :author, :id, :status
+	attr_reader :title, :author, :id, :status
 
-  def initialize(title, author, id = nil)
+	def initialize(title, author, id = nil)
 		@title  = title
-    @author = author
+		@author = author
 		@id = id 
 		@status = "available"
-  end
+	end
 
 	def check_out
-		@status = "checked_out"
+		if @status == "available"
+			@status = "checked_out" 
+			true
+		else
+			@status
+			false
+		end
 	end
 end
 
 class Borrower
-  def initialize(name)
-  end
+	def initialize(name)
+	end
 end
 
 class Library
-  def initialize(name)
-    @books = []
-  end
+	def initialize(name)
+		@books = []
+	end
 
-  def books
-  end
+	def books
+	end
 
-  def add_book(title, author)
-  end
+	def add_book(title, author)
+	end
 
-  def check_out_book(book_id, borrower)
-  end
+	def check_out_book(book_id, borrower)
+	end
 
-  def check_in_book(book)
-  end
+	def check_in_book(book)
+	end
 
-  def available_books
-  end
+	def available_books
+	end
 
-  def borrowed_books
-  end
+	def borrowed_books
+	end
 end
