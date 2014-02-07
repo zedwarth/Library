@@ -58,12 +58,14 @@ class Library
 		#Find book by id
 		book = @books.select { |book| book.id == book_id }[0]
 
+		#If book hasn't been borrowed
 		#Set book as checked out
-		book.check_out
-		@borrowed[book_id] = borrower
-
-		#return book		
-		book
+		if book.check_out
+			@borrowed[book_id] = borrower
+			book
+		else
+			nil
+		end
 		
 	end
 
