@@ -17,7 +17,7 @@ describe Book do
   it "can be checked out" do
     book = Book.new("The Stranger", "Albert Camus")
     did_it_work = book.check_out
-    expect(did_it_work).to be_true
+    expect(did_it_work).to eq(true)
     expect(book.status).to eq 'checked_out'
   end
 
