@@ -1,8 +1,11 @@
 require "./library.rb"
+require 'pry-debugger'
 
 describe Book do
   it "has a title and author, and nil id" do
     book = Book.new("The Stranger", "Albert Camus")
+
+    # binding.pry
 
     expect(book.title).to eq "The Stranger"
     expect(book.author).to eq "Albert Camus"
