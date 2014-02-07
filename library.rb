@@ -42,9 +42,6 @@ end
 
 class Library
 	attr_reader :books 
-	
-	#v delete after debug v
-	attr_reader :borrowed
 
 	def initialize(name)
 		@books = Array.new
@@ -85,7 +82,6 @@ class Library
 
 	def check_in_book(book)
 		book.check_in
-#		get_borrower(book.id).checked_out -=1
 	end
 
 	def available_books
@@ -93,5 +89,6 @@ class Library
 	end
 
 	def borrowed_books
+		@books.select { |x| x.status == "checked_out" }
 	end
 end
