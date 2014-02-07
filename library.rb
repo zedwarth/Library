@@ -53,6 +53,14 @@ class Library
 	end
 
 	def check_out_book(book_id, borrower)
+
+		#Find book by id
+		book = @books.select { |book| book.id == book_id }[0]
+
+		#Set book as checked out
+		book.check_out
+		book
+		
 	end
 
 	def check_in_book(book)
