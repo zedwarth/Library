@@ -155,13 +155,13 @@ describe Library do
 
     book = lib.check_out_book(book_2.id, jackson)
     expect(book.title).to eq "Essential JavaScript Design Patterns"
-		binding.pry
+
     # However, the third should return nil
     book = lib.check_out_book(book_3.id, jackson)
     expect(book).to be_nil
   end
 
-  xit "returns available books" do
+  it "returns available books" do
     lib = Library.new("Public Library")
     lib.register_new_book("Eloquent JavaScript", "Marijn Haverbeke")
     lib.register_new_book("Essential JavaScript Design Patterns", "Addy Osmani")
@@ -169,7 +169,7 @@ describe Library do
 
     # At first, all books are available
     expect(lib.available_books.count).to eq(3)
-    expect(lib.available_books.first).to be_a?(Book)
+    expect(lib.available_books.first).to be_a(Book)
 
     jordan = Borrower.new("Michael jordan")
     book = lib.check_out_book(lib.available_books.first.id, jordan)
