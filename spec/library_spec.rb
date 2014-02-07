@@ -4,16 +4,13 @@ require 'pry-debugger'
 describe Book do
   it "has a title and author, and nil id" do
     book = Book.new("The Stranger", "Albert Camus")
-
-    #:binding.pry
-
     expect(book.title).to eq "The Stranger"
     expect(book.author).to eq "Albert Camus"
     expect(book.id).to be_nil
   end
 
-  xit "has a default status of available" do
-    book = Book.new
+  it "has a default status of available" do
+    book = Book.new("The Stranger", "Albert Camus")
     expect(book.status).to eq 'available'
   end
 
