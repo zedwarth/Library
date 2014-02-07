@@ -65,7 +65,7 @@ describe Library do
     expect(created_book.id).to_not be_nil
   end
 
-  xit "can add multiple books" do
+  it "can add multiple books" do
     lib = Library.new("Public Library")
     lib.register_new_book("One", "Bob")
     lib.register_new_book("Two", "Bob")
