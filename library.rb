@@ -1,9 +1,12 @@
 class Book
-	attr_reader :title, :author, :id, :status
+	attr_accessor :id
+	attr_reader :title, :author, :status, :year_published, :edition
 
-	def initialize(title, author, id = nil)
+	def initialize(title, author, year_published = nil, edition = nil)
 		@title  = title
 		@author = author
+		@year_published = year_published
+		@edition = edition
 		@id = id 
 		@status = "available"
 	end
@@ -50,7 +53,8 @@ class Library
 	end
 
 	def register_new_book(title, author)
-		book = Book.new(title, author, @ids)
+		book = Book.new(title, author)
+		book.id = @ids
 		@books << book
 		@ids += 1
 	end
