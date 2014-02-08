@@ -38,6 +38,18 @@ describe Book do
     book.check_in
     expect(book.status).to eq 'available'
   end
+
+	it "has optional year-published and edition parameters" do
+		# If they aren't set, should return nil
+    book = Book.new("The Stranger", "Albert Camus")
+		expect(book.year-published).to be_nil
+		expect(book.edition).to be_nil
+
+		# If they are set, return the date or edition
+    book = Book.new("The Stranger", "Albert Camus", "1943", "First")
+		expect(book.year-published).to eq "1943"
+		expect(book.edition).to eq "First"
+	end
 end
 
 describe Borrower do
