@@ -59,6 +59,7 @@ class Library
 		@books = Array.new
 		@ids = 0
 		@borrowed = Hash.new
+		@borrower = Array.new
 	end
 
 	def register_new_book(title, author)
@@ -94,6 +95,7 @@ class Library
 	end
 
 	def check_in_book(book)
+		@borrowed[book.id].checked_out -=1
 		book.check_in
 	end
 
