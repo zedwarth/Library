@@ -216,7 +216,7 @@ describe Library do
 		book_2 = lib.books[1]
 		finn = Borrower.new("Finn the Human")
 
-#		binding.pry
+		#		binding.pry
 
 		# Rating and Review
 		finn.rate_book(book_1, "5", "Magical realism at it's best!")
@@ -224,8 +224,33 @@ describe Library do
 
 		# Rating without a Review
 		finn.rate_book(book_2, "5")
-		expect(book_2.rating.first).to eq(["Finn the Human", "5"]
+		expect(book_2.rating.first).to eq(["Finn the Human", "5"])
 
+	end
+
+	it "allows a Borrower to to check out a book again once they've returned one or both of their checkout books" do
+		lib = Library.new("Public Library")
+		lib.register_new_book("100 Years of Solitude", "Gabriel García Márquez")
+		lib.register_new_book("Fight Club", "Chuck Palahniuk")
+		lib.register_new_book("The Hobbit", "J.R.R Tolkien")
+	
+		book_1 = lib.books[0]
+		book_2 = lib.books[1]
+		book_3 = lib.books[2]
+		finn = Borrower.new("Finn the Human")
+
+		book = lib.check_out_book(book_1.id, finn)
+		expect(book.title).to eq "100 Years of Solitude"
+
+		book = lib.check_out_book(book_2.id, finn)
+		expect(book.title).to eq "Fight Club"
+
+		# Check a book back in
+		lib.check_in_book(book)
+
+		# Now a new book can be check out
+		book = lib.check_out_book(book_3.id, finn)
+		expect(book.title).to eq "The Hobbit"
 	end
 
 end
