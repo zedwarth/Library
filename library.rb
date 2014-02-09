@@ -1,5 +1,5 @@
 class Book
-	attr_accessor :id
+	attr_accessor :id, :rating
 	attr_reader :title, :author, :status, :year_published, :edition
 
 	def initialize(title, author, year_published = nil, edition = nil)
@@ -9,6 +9,7 @@ class Book
 		@edition = edition
 		@id = id 
 		@status = "available"
+		@rating = Array.new
 	end
 
 	def check_out
@@ -40,6 +41,14 @@ class Borrower
 	def initialize(name)
 		@name = name
 		@checked_out = 0
+	end
+
+	def rate_book(book, rating, review="")
+		unless review.empty?
+			book.rating << [@name, rating, review]
+		else
+			book.rating << [@name, rating]
+		end
 	end
 end
 
