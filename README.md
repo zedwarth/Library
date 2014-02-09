@@ -13,6 +13,12 @@ Library Project!
 * the Library should be able to list *available* books and *borrowed* books
 
 
+##Extentions
+
+* ✓ Books should have optional attributes for `year-published` and `edition`.
+*   Borrowers should be able to leae reviews on Books with both a rating and an optional written review.
+
+
 ##Original Repo
 Michael Ornellas
 Instructor @ [MakerSquare](http://themakersquare.com)
